@@ -19,15 +19,35 @@
 }
 
 .product > img {
-  min-width: 100px;
+  width: 100px;
   min-height: 100px;
   background-color: lightseagreen;
 }
 
-.product:nth-of-type(2n) > img {
+.product:nth-of-type(2) > img {
   background-color: red;
 }
 
-.product:nth-of-type(2n + 3) > img {
+.product:nth-of-type(3) > img {
   background-color: yellowgreen;
+}
+
+.product:nth-of-type(4) > img {
+  background-color: brown;
+}
+
+.product:nth-of-type(5) > img {
+  background-color: grey;
+}
+
+.product:nth-of-type(6) > img {
+  background-color: black;
+}
+
+.product:nth-of-type(7) > img {
+  background-color: navy;
+}
+
+.product:nth-of-type(8) > img {
+  background-color: gold;
 }
