@@ -1,0 +1,33 @@
+.shop {
+  margin: 2rem;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+  padding: 2rem;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.product > img {
+  min-width: 100px;
+  min-height: 100px;
+  background-color: lightseagreen;
+}
+
+.product:nth-of-type(2n) > img {
+  background-color: red;
+}
+
+.product:nth-of-type(2n + 3) > img {
+  background-color: yellowgreen;
+}

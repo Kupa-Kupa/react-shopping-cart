@@ -1,0 +1,10 @@
+.App {
+  margin: 2rem;
+}
+
+p {
+  max-width: 80ch;
+  margin: 1.5rem auto;
+  text-align: justify;
+  line-height: 1.6;
+}

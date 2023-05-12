@@ -1,0 +1,18 @@
+nav {
+  background-color: lightskyblue;
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 2rem;
+}
+
+nav > .links {
+  display: flex;
+  gap: 2rem;
+}
+
+.cart-items-number {
+  padding: 0 0.5rem;
+}
