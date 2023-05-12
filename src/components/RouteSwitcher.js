@@ -22,6 +22,76 @@ const RouteSwitcher = () => {
 
   const [cartItems, setCartItems] = useState([]);
 
+  const incrementCartItem = (e) => {
+    // update item count for nav
+    setItemCount((prevState) => {
+      return prevState + 1;
+    });
+
+    const productID = Number(e.target.parentElement.dataset.id);
+
+    const product = products.filter((product) => {
+      return product.id === productID;
+    })[0];
+
+    setCartItems((prevState) => {
+      // update previous state counts
+      let newState = prevState.map((item) => {
+        if (item.id === product.id) {
+          console.log('match -', item.count, 'item is already in cart');
+
+          const newCount = item.count + 1;
+
+          console.log('new quantity', newCount);
+
+          return { ...item, count: newCount };
+        }
+
+        return { ...item };
+      });
+
+      return newState;
+    });
+  };
+
+  const decrementCartItem = (e) => {
+    // update item count for nav
+    setItemCount((prevState) => {
+      return prevState - 1;
+    });
+
+    const productID = Number(e.target.parentElement.dataset.id);
+
+    const product = products.filter((product) => {
+      return product.id === productID;
+    })[0];
+
+    setCartItems((prevState) => {
+      // update previous state counts
+      let newState = prevState.map((item) => {
+        if (item.id === product.id) {
+          console.log('match -', item.count, 'item is already in cart');
+
+          const newCount = item.count - 1;
+
+          console.log('new quantity', newCount);
+
+          if (newCount === 0) {
+            return null;
+          }
+
+          return { ...item, count: newCount };
+        }
+
+        return { ...item };
+      });
+
+      const filteredState = newState.filter((item) => item !== null);
+
+      return filteredState;
+    });
+  };
+
   const addToCart = (e) => {
     const productID = Number(e.target.parentElement.dataset.id);
 
@@ -149,7 +219,16 @@ const RouteSwitcher = () => {
       <Nav itemCount={itemCount} />
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cartItems={cartItems}
+              incrementCartItem={incrementCartItem}
+              decrementCartItem={decrementCartItem}
+            />
+          }
+        />
         <Route
           path="/shop"
           element={<Shop addToCart={addToCart} products={products} />}

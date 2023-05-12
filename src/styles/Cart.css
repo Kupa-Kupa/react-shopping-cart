@@ -1,3 +1,37 @@
 .cart {
   margin: 2rem;
 }
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+  padding: 2rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.item > img {
+  width: 100px;
+  min-height: 100px;
+  background-color: lightskyblue;
+}
+
+.item-count {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-count > button {
+  width: 1.2rem;
+  height: 1.2rem;
+}
