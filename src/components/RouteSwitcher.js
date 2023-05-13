@@ -5,6 +5,7 @@ import Cart from '../pages/Cart';
 import Shop from '../pages/Shop';
 import Nav from './Nav';
 import Footer from './Footer';
+import ModalCart from './ModalCart';
 
 const RouteSwitcher = () => {
   const [itemCount, setItemCount] = useState(0);
@@ -213,6 +214,68 @@ const RouteSwitcher = () => {
     });
   };
 
+  /*
+  useEffect(() => {
+    
+    //currently if you leave the page and then navigate back to the 
+    //shop page, when you click add to cart the modal won't appear
+    //the first time
+    
+    const modal = document.querySelector('dialog');
+
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+
+    const links = document.querySelectorAll('a');
+
+    console.log(links);
+
+    console.log(addToCartButtons);
+
+    const showModal = (e) => {
+      console.log('show modal');
+      modal.show();
+    };
+
+    const closeModal = (e) => {
+      console.log('close modal');
+      modal.close();
+    };
+
+    for (const button of addToCartButtons) {
+      button.addEventListener('click', showModal);
+    }
+
+    for (const link of links) {
+      link.addEventListener('click', closeModal);
+    }
+
+    // modal.showModal();
+
+    modal.addEventListener(`click`, (e) => {
+      console.log(e.target);
+    });
+
+    return () => {
+      modal.removeEventListener(`click`, (e) => {
+        console.log(e.target);
+      });
+
+      for (const button of addToCartButtons) {
+        button.removeEventListener('click', showModal);
+      }
+
+      for (const link of links) {
+        link.removeEventListener('click', closeModal);
+      }
+    };
+  });
+  */
+
+  const closeModal = () => {
+    const modal = document.querySelector('dialog');
+    modal.close();
+  };
+
   return (
     // github pages doesn't support BrowserRouter
     <HashRouter>
@@ -234,6 +297,12 @@ const RouteSwitcher = () => {
           element={<Shop addToCart={addToCart} products={products} />}
         />
       </Routes>
+      <ModalCart
+        cartItems={cartItems}
+        incrementCartItem={incrementCartItem}
+        decrementCartItem={decrementCartItem}
+        closeModal={closeModal}
+      />
       <Footer />
     </HashRouter>
   );

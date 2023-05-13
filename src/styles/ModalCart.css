@@ -1,0 +1,62 @@
+.modal-products-container {
+  max-height: 40vh;
+  overflow: auto;
+}
+
+dialog {
+  margin-top: 10vh;
+  margin-left: auto;
+  position: absolute;
+  top: 0;
+  height: 80vh;
+  background-color: antiquewhite;
+}
+
+.modal-content {
+  padding: 1rem 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modal-products-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+
+  padding: 2rem;
+  min-width: 30vw;
+}
+
+.close-modal {
+  font-size: 1.3rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.modal-item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.modal-item > img {
+  width: 100px;
+  min-height: 100px;
+  background-color: rgb(134, 216, 152);
+
+  place-self: center;
+}
+
+.modal-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
